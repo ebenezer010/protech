@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PROTCH DEPANNAGE Entreprise</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; }
+    header { background: #333; color: white; padding: 1em 0; text-align: center; }
+    nav { background: #444; padding: 1em; text-align: center; display: none; }
+    nav a { color: white; margin: 0 1em; text-decoration: none; font-weight: bold; }
+    nav a:hover { text-decoration: underline; }
+    .container { display: flex; flex-wrap: wrap; justify-content: center; padding: 2em; }
+    .card { background: white; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin: 1em; width: 300px; padding: 1em; text-align: center; transition: all 0.3s ease-in-out; cursor: pointer; }
+    .card:hover { transform: translateY(-5px); }
+    .card h2 { color: #333; margin: 0.5em 0; }
+    .card ul { display: none; padding-left: 20px; text-align: left; margin-top: 1em; }
+    .card.active ul { display: block; }
+    .icon { font-size: 3em; margin-bottom: 0.2em; color: #007BFF; }
+    .contact-form { max-width: 500px; margin: 3em auto; background: white; padding: 2em; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+    .contact-form h2 { text-align: center; margin-bottom: 1em; }
+    .contact-form input, .contact-form textarea { width: 100%; padding: 0.75em; margin-bottom: 1em; border: 1px solid #ccc; border-radius: 5px; }
+    .contact-form button { background: #007BFF; color: white; border: none; padding: 0.75em 2em; border-radius: 5px; cursor: pointer; }
+    .contact-form button:hover { background: #0056b3; }
+
+    /* Styles de l'icône du menu */
+    .menu-icon {
+      font-size: 2em;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      height: 25px;
+      width: 30px;
+    }
+    .menu-icon div {
+      background: white;
+      height: 5px;
+      width: 100%;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>PROTCH DEPANNAGE Entreprise</h1>
+  </header>
+
+  <!-- Icône du menu -->
+  <div class="menu-icon" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <!-- Menu -->
+  <nav id="menu">
+    <a href="#electricite">Électricité</a>
+    <a href="#serrurerie">Serrurerie</a>
+    <a href="#menuiserie">Menuiserie</a>
+    <a href="#domestiques">Travaux Domestiques</a>
+    <a href="#vehicules">Services Véhicules</a>
+    <a href="#complementaires">Complémentaires</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <main class="container">
+    <div class="card" id="electricite" onclick="toggleCard(this)">
+      <div class="icon"><i class="fas fa-bolt"></i></div>
+      <h2>Électricité</h2>
+      <ul>
+        <li>Installation de prises et interrupteurs</li>
+        <li>Réparation de pannes électriques</li>
+        <li>Installation de luminaires (ampoules, lustres, plafonniers…)</li>
+        <li>Mise en sécurité de l’installation électrique</li>
+        <li>Maintenance des tableaux électriques</li>
+      </ul>
+    </div>
+
+    <div class="card" id="serrurerie" onclick="toggleCard(this)">
+      <div class="icon"><i class="fas fa-key"></i></div>
+      <h2>Serrurerie</h2>
+      <ul>
+        <li>Ouverture de porte (porte claquée ou clé perdue)</li>
+        <li>Changement de serrure</li>
+        <li>Réparation de serrures cassées</li>
+        <li>Installation de nouvelles serrures de sécurité</li>
+      </ul>
+    </div>
+
+    <div class="card" id="menuiserie" onclick="toggleCard(this)">
+      <div class="icon"><i class="fas fa-hammer"></i></div>
+      <h2>Menuiserie</h2>
+      <ul>
+        <li>Réparation de portes et fenêtres en bois</li>
+        <li>Réglage de portes qui ferment mal</li>
+        <li>Fabrication ou réparation de meubles simples</li>
+        <li>Pose d'étagères, cadres, tringles à rideaux</li>
+      </ul>
+    </div>
+
+    <div class="card" id="domestiques" onclick="toggleCard(this)">
+      <div class="icon"><i class="fas fa-tools"></i></div>
+      <h2>Petits Travaux Domestiques</h2>
+      <ul>
+        <li>Montage de meubles (armoires, bureaux…)</li>
+        <li>Fixation au mur (téléviseur, tableaux, miroirs…)</li>
+        <li>Pose de rideaux, étagères, supports divers</li>
+        <li>Assistance pour déménagements légers</li>
+      </ul>
+    </div>
+
+    <div class="card" id="vehicules" onclick="toggleCard(this)">
+      <div class="icon"><i class="fas fa-car"></i></div>
+      <h2>Services Véhicules</h2>
+      <ul>
+        <li>Changement de pneus</li>
+        <li>Réparation de pneus crevés ou abîmés</li>
+        <li>(pour motos, voitures légères, etc.)</li>
+      </ul>
+    </div>
+
+    <div class="card" id="complementaires" onclick="toggleCard(this)">
+      <div class="icon"><i class="fas fa-plus-circle"></i></div>
+      <h2>Services Complémentaires</h2>
+      <ul>
+        <li>Plomberie légère (réparation de fuites, débouchage simple)</li>
+        <li>Peinture et retouches murales</li>
+        <li>Nettoyage après travaux</li>
+        <li>Diagnostic maison (état général de l’installation)</li>
+      </ul>
+    </div>
+  </main>
+
+  <section id="contact" class="contact-form">
+    <h2>Contactez-nous</h2>
+    <form action="mailto:Protecdepannage695@gmail.com" method="POST" enctype="text/plain">
+      <label for="name">Nom :</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email :</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="message">Message :</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <button type="submit">Envoyer</button>
+    </form>
+    <p style="text-align:center; margin-top: 1em;">
+      Ou contactez-nous directement :<br>
+      Email : <a href="mailto:Protecdepannage695@gmail.com">Protecdepannage695@gmail.com</a><br>
+      Téléphone : <a href="tel:+243976660385">+243 976 660 385</a>
+    </p>
+  </section>
+
+  <!-- Chatbot HTML code -->
+  <div id="chatbot" style="position:fixed;bottom:20px;right:20px;width:300px;background:white;border:1px solid #ccc;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,0.2);display:none;flex-direction:column;overflow:hidden;font-family:sans-serif;">
+    <div style="background:#007BFF;color:white;padding:1em;cursor:pointer;" onclick="toggleChatbot()">👋 Besoin d’aide ?</div>
+    <div id="chatbot-messages" style="padding:1em;height:200px;overflow-y:auto;"></div>
+    <input id="chatbot-input" type="text" placeholder="Écrivez ici..." style="padding:0.5em;border:none;border-top:1px solid #ccc;width:100%;" onkeypress="handleChat(event)">
+  </div>
+
+  <button onclick="toggleChatbot()" style="position:fixed;bottom:20px;right:20px;padding:1em;background:#007BFF;color:white;border:none;border-radius:50%;box-shadow:0 2px 10px rgba(0,0,0,0.2);font-size:1.5em;">💬</button>
+
+  <script>
+    function toggleCard(card) {
+      card.classList.toggle("active");
+    }
+
+    let chatbotOpen = false;
+
+    function toggleChatbot() {
+      const cb = document.getElementById("chatbot");
+      chatbotOpen = !chatbotOpen;
+      cb.style.display = chatbotOpen ? "flex" : "none";
+    }
+
+    let menuOpen = false;
+
+    function toggleMenu() {
+      const menu = document.getElementById("menu");
+      menuOpen = !menuOpen;
+      menu.style.display = menuOpen ? "block" : "none";
+    }
+
+    function handleChat(e) {
+      if (e.key === "Enter") {
+        const input = document.getElementById("chatbot-input");
+        const messages = document.getElementById("chatbot-messages");
+        const userText = input.value.trim();
+        if (userText === "") return;
+        messages.innerHTML += `<div><strong>Vous:</strong> ${userText}</div>`;
+        input.value = "";
+
+        // Réponses simples
+        let botReply = "Je n’ai pas compris votre demande.";
+        if (userText.toLowerCase().includes("prix")) botReply = "Nos prix varient selon le service, contactez-nous pour un devis personnalisé.";
+        if (userText.toLowerCase().includes("horaire")) botReply = "Nous intervenons de 8h à 20h, 7j/7.";
+        if (userText.toLowerCase().includes("électricité")) botReply = "Nous réalisons tous types de dépannages électriques. Souhaitez-vous un devis ?";
+
+        setTimeout(() => {
+          messages.innerHTML += `<div><strong>Bot:</strong> ${botReply}</div>`;
+          messages.scrollTop = messages.scrollHeight;
+        }, 500);
+      }
+    }
+  </script>
+</body>
+</html>
